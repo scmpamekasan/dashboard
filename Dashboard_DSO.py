@@ -337,7 +337,7 @@ if option == "Top 10 Brand Nielsen" :
 
     st.markdown("""---""")
 
-    if st.checkbox ("Show Data (Magnificent 7 Brand Prioritas)"):
+    if st.checkbox ("Show Data (Magnificent 7 Brand Prioritas)", value=st.session_state["default_checkbox_value"]):
         st.markdown('### Magnificent 7 Brand Prioritas')
 
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
@@ -428,7 +428,7 @@ if option == "Top 10 Brand Internal" :
         col10.metric(tenth, tenth_value, tenth_delta)
 
         st.markdown("""---""")
-        if st.checkbox ("Show Data (Magnificent 7 Brand Prioritas)"):
+        if st.checkbox ("Show Data (Magnificent 7 Brand Prioritas)",value=st.session_state["default_checkbox_value"]):
             st.markdown('### Magnificent 7 Brand Prioritas')
 
         ###    st.write(new_df.drop(['Delta', 'Feb21', 'Apr21', 'Agt22', 'Okt22', 'Des22'], axis=1))
