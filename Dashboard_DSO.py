@@ -97,9 +97,9 @@ if option == "Struktur Organisasi":
     st.markdown("""---""")
 
     st.header("Struktur Organisasi")
-image1 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Team_Promosi.png')
-image2 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Team_Distribusi.png')
-image3 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Back_Office.png')
+image1 = Image.open('Team_Promosi.png')
+image2 = Image.open('Team_Distribusi.png')
+image3 = Image.open('Back_Office.png')
 
 col1, col2, col3 = st.columns(3)
 with col1 :
