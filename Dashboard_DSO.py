@@ -128,7 +128,7 @@ if option == "MS & MP By Category":
     with col2 :
         if option == "MS & MP By Category":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+                io="Data/MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -141,7 +141,7 @@ if option == "MS & MP By Category":
     with col1 :
         if option == "MS & MP By Category":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+                io="Data/Market_DSO.xlsx",
                 engine="openpyxl",
                 sheet_name="MARKET",
                 usecols="B:C",
@@ -166,7 +166,7 @@ if option == "MS By Group Pabrikan":
     # large pie chart parameters
     
     df = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+        io="Data/Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:P",
@@ -232,7 +232,7 @@ if option == "MS By Group Pabrikan":
     
     
     df = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+        io="Data/MIT.xlsx",
         engine="openpyxl",
         sheet_name="DSO",
         usecols="A:P",
@@ -291,7 +291,7 @@ if option == "Top 10 Brand Nielsen" :
     st.markdown('### Top 10 Brand Nielsen - Mei 2022 (YTD)')
 
     df = pd.read_excel(
-    io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+    io="Data/Market_DSO.xlsx",
     engine="openpyxl",
     sheet_name="Nielsen",
     usecols="A:Q",
@@ -360,7 +360,7 @@ if option == "Top 10 Brand Nielsen" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df2 = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+        io="Data/Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:Q",
@@ -382,7 +382,7 @@ if option == "Top 10 Brand Internal" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+        io="Data/MIT.xlsx",
         engine="openpyxl",
         sheet_name="DSO",
         ###names=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q'],
@@ -454,7 +454,7 @@ if option == "Top 10 Brand Internal" :
 
             #################
             df2 = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:Q",
@@ -489,7 +489,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df10 = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Omset_2022",
             usecols="G:I",
@@ -529,7 +529,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df40 = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Omset_2022",
             usecols="E:I",
@@ -555,7 +555,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+            io="Data/Market_DSO.xlsx",
             engine="openpyxl",
             sheet_name="MARKET",
             usecols="B:E",
@@ -567,7 +567,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Sektor",
             usecols="A:P",
@@ -579,7 +579,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():    
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Omset_2022",
             usecols="A:J",
@@ -700,7 +700,7 @@ if option == "DSO Canvas Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():    
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Omset_2022",
             usecols="A:J",
