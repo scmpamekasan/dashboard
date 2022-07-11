@@ -1,6 +1,5 @@
 from functools import cache
 import pandas as pd  # pip install pandas openpyxl
-import plotly as pl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import matplotlib.pyplot as plt
@@ -16,6 +15,8 @@ import time
 import requests
 import json
 
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 
 
 st.set_page_config(layout="wide")
@@ -26,7 +27,17 @@ st.header('DASHBOARD DSO PAMEKASAN')
 #################### Menu SideBar ##################
 
 
-option = st.sidebar.selectbox("Menu",["Home Page", "Struktur Organisasi", "MS & MP By Category", "MS By Group Pabrikan", "Top 10 Brand Nielsen", "Top 10 Brand Internal","DSO Sales Performance"])
+option = st.sidebar.selectbox("Menu",[
+                              "Home Page",
+                              "Struktur Organisasi",
+                              "MS & MP By Category",
+                              "MS By Group Pabrikan",
+                              "Top 10 Brand Nielsen",
+                              "Top 10 Brand Internal",
+                              "DSO Sales Performance",
+                              "DSO Canvas Performance"
+                              ]
+                              )
 
 ####################### MAP DSO ####################
 if option == "Home Page":
@@ -88,9 +99,9 @@ if option == "Struktur Organisasi":
     st.markdown("""---""")
 
     st.header("Struktur Organisasi")
-image1 = Image.open('Team_Promosi.png')
-image2 = Image.open('Team_Distribusi.png')
-image3 = Image.open('Back_Office.png')
+image1 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Team_Promosi.png')
+image2 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Team_Distribusi.png')
+image3 = Image.open('/Users/ekasulawestara/Dashboard DSO Pamekasan/Back_Office.png')
 
 col1, col2, col3 = st.columns(3)
 with col1 :
@@ -117,7 +128,7 @@ if option == "MS & MP By Category":
     with col2 :
         if option == "MS & MP By Category":
                 df = pd.read_excel(
-                io="Data/MIT.xlsx",
+                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -130,7 +141,7 @@ if option == "MS & MP By Category":
     with col1 :
         if option == "MS & MP By Category":
                 df = pd.read_excel(
-                io="Data/Market_DSO.xlsx",
+                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
                 engine="openpyxl",
                 sheet_name="MARKET",
                 usecols="B:C",
@@ -147,7 +158,7 @@ if option == "MS & MP By Category":
 if option == "MS By Group Pabrikan":
     st.markdown("""---""")
 
-    st.markdown('### MS By Group - Nielsen (Per April 2022)')
+    st.markdown('### MS By Group - Nielsen (Per Mei 2022)')
     fig = plt.figure(figsize=(9, 5.0625))
     ax1 = fig.add_subplot(121)
     ax2 = fig.add_subplot(122)
@@ -155,21 +166,27 @@ if option == "MS By Group Pabrikan":
     # large pie chart parameters
     
     df = pd.read_excel(
-        io="Data/Market_DSO.xlsx",
+        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:P",
         nrows=1000,
         )
-    pivot1 = pd.pivot_table(data=df, index=['Group'], values = 'Apr-22', aggfunc='sum')
-    xxx = [pivot1.iloc[0]['Apr-22'], pivot1.iloc[1]['Apr-22'], pivot1.iloc[2]['Apr-22'], pivot1.iloc[3]['Apr-22'], pivot1.iloc[4]['Apr-22']]
-    pivot2 = pd.pivot_table(data=df, index=['Kategori'], values = 'Apr-22', aggfunc='sum')
-    yyy = [pivot2.iloc[1]['Apr-22'], pivot2.iloc[2]['Apr-22'], pivot2.iloc[3]['Apr-22']]
+    pivot1 = pd.pivot_table(data=df, index=['Group'], values = 'May-22', aggfunc='sum')
+    xxx = [pivot1.iloc[0]['May-22'], pivot1.iloc[1]['May-22'], pivot1.iloc[2]['May-22'], pivot1.iloc[3]['May-22'], pivot1.iloc[4]['May-22'],pivot1.iloc[5]['May-22']]
+    pivot2 = pd.pivot_table(data=df, index=['Group', 'Kategori'], values = 'May-22', aggfunc='sum')
+    yyy = [pivot2.iloc[4]['May-22'], pivot2.iloc[5]['May-22'], pivot2.iloc[6]['May-22']]
+
+    ###st.write(pivot1)
+    ###st.write(xxx)
+    ###st.write(pivot2)
+    ###st.write(yyy)
+
     ratios = xxx
-    labels = ['Djarum', 'GG', 'NTI', 'Others', 'PMI']
-    explode = [0.1, 0, 0, 0, 0]
+    labels = ['BAT', 'Djarum', 'GG', 'Nojorono', 'Others', 'PMI']
+    explode = [0, 0.1, 0, 0, 0, 0]
     # rotate so that first wedge is split by the x-axis
-    angle = 65 * ratios[0]
+    angle = -60 * ratios[0]
     ax1.pie(ratios, autopct='%1.1f%%', startangle=angle,
             labels=labels, explode=explode)
     # small pie chart parameters
@@ -182,8 +199,8 @@ if option == "MS By Group Pabrikan":
     ax2.set_title('Djarum by Kategori')
     # use ConnectionPatch to draw lines between the two plots
     # get the wedge data
-    theta1, theta2 = ax1.patches[0].theta1, ax1.patches[0].theta2
-    center, r = ax1.patches[0].center, ax1.patches[0].r
+    theta1, theta2 = ax1.patches[1].theta1, ax1.patches[1].theta2
+    center, r = ax1.patches[1].center, ax1.patches[1].r
     # draw top connecting line
     x = r * np.cos(np.pi / 180 * theta2) + center[0]
     y = np.sin(np.pi / 180 * theta2) + center[1]
@@ -215,9 +232,9 @@ if option == "MS By Group Pabrikan":
     
     
     df = pd.read_excel(
-        io="Data/MIT.xlsx",
+        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
         engine="openpyxl",
-        sheet_name="Sektor",
+        sheet_name="DSO",
         usecols="A:P",
         nrows=10000,
         )
@@ -232,7 +249,7 @@ if option == "MS By Group Pabrikan":
     labels = ['NTI', 'Djarum', 'GG', 'BAT', 'Others', 'PMI']
     explode = [0, 0.1, 0, 0, 0, 0]
     # rotate so that first wedge is split by the x-axis
-    angle = -320.5 * ratios[0]
+    angle = -33 * ratios[0]
     ax1.pie(ratios, autopct='%1.1f%%', startangle=angle,
             labels=labels, explode=explode)
     # small pie chart parameters
@@ -271,10 +288,10 @@ if option == "Top 10 Brand Nielsen" :
 
     st.markdown("""---""")
 
-    st.markdown('### Top 10 Brand Nielsen - April 2022 (YTD)')
+    st.markdown('### Top 10 Brand Nielsen - Mei 2022 (YTD)')
 
     df = pd.read_excel(
-    io="Data/Market_DSO.xlsx",
+    io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
     engine="openpyxl",
     sheet_name="Nielsen",
     usecols="A:Q",
@@ -343,7 +360,7 @@ if option == "Top 10 Brand Nielsen" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df2 = pd.read_excel(
-        io="Data/Market_DSO.xlsx",
+        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:Q",
@@ -352,6 +369,8 @@ if option == "Top 10 Brand Nielsen" :
         df_djarum_group = df2[df2.Brand.isin(names)]
         df_top_10_internal = df_djarum_group.drop(['Group','Kategori','Delta',], axis=1)
         st.write(df_top_10_internal)
+
+        
 
 ############ Top 10 Brand Internal #############
 
@@ -363,7 +382,7 @@ if option == "Top 10 Brand Internal" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df = pd.read_excel(
-        io="Data/MIT.xlsx",
+        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
         engine="openpyxl",
         sheet_name="DSO",
         ###names=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q'],
@@ -435,7 +454,7 @@ if option == "Top 10 Brand Internal" :
 
             #################
             df2 = pd.read_excel(
-            io="Data/MIT.xlsx",
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:Q",
@@ -463,17 +482,80 @@ if option == "Top 10 Brand Internal" :
 
 
 ############ DSO Sales Performance #############
-
 if option == "DSO Sales Performance":
-
-
     st.markdown("""---""")
     st.subheader(" SALES PERFORMACE")
 
     @st.cache(allow_output_mutation=True)
     def load_data():
+        df10 = pd.read_excel(
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            engine="openpyxl",
+            sheet_name="Omset_2022",
+            usecols="G:I",
+            nrows=250000
+            )
+        return (df10)
+    df10=load_data()
+        
+
+    df11 = df10.pivot_table('Omzet',index='RokokName_S',columns='TimePeriode',aggfunc={'Omzet':'sum'})
+    df12 = df11.T.assign(TotalOmset = lambda x: x.sum(axis=1))
+    df13 = df12[['TotalOmset']]
+    
+
+    fig = px.line(df13, title='Omset DSO Pamekasan Sem 1 2022')
+    st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+        ### TOP 10 Brand##########
+    df20 = df10.pivot_table('Omzet',index='RokokName_S',columns='TimePeriode',aggfunc={'Omzet':'sum'}).T
+    df21 = df20.T.assign(Rata2 = lambda x: x.mean(axis=1))
+    df22 = df21.sort_values('Rata2',ascending = False).groupby('RokokName_S').head(2)
+    df23 = df22.head(10).T
+    df24 = df23.head(23)
+        ###df5 = df4.drop(['Rata2'], axis=1)
+
+
+        ###df2 = df1.sort_values('Omzet',ascending = False).groupby('Rokokname_S').head(2)
+        ###df2 = df1.sort_values(by=['sum'])
+    ###st.write(df24)
+
+    fig = px.line(df24, title='Top 10 Brand')
+    st.plotly_chart(fig, use_container_width=True)
+
+    @st.cache(allow_output_mutation=True)
+    def load_data():
+        df40 = pd.read_excel(
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            engine="openpyxl",
+            sheet_name="Omset_2022",
+            usecols="E:I",
+            nrows=250000
+            )
+        return (df40)
+    df40=load_data()
+
+    df41 = df40.drop(['RokokProductGroup','RokokName_S'], axis=1)
+    df42 = df41.pivot_table('Omzet',index='GeographyZona',columns='TimePeriode',aggfunc={'Omzet':'sum'}).T
+    ###df43 = df42.T.assign(TotalOmset = lambda x: x.sum(axis=1))
+    
+    
+    fig = px.line(df42, title='Kontribusi Omset By Zona')
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("""---""")
+
+
+if option == "DSO Sales Performance":
+
+
+    @st.cache(allow_output_mutation=True)
+    def load_data():
         df = pd.read_excel(
-            io="Data/Market_DSO.xlsx",
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
             engine="openpyxl",
             sheet_name="MARKET",
             usecols="B:E",
@@ -485,7 +567,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df = pd.read_excel(
-            io="Data/MIT.xlsx",
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Sektor",
             usecols="A:P",
@@ -497,7 +579,7 @@ if option == "DSO Sales Performance":
     @st.cache(allow_output_mutation=True)
     def load_data():    
         df = pd.read_excel(
-            io="Data/MIT.xlsx",
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Omset_2022",
             usecols="A:J",
@@ -514,6 +596,7 @@ if option == "DSO Sales Performance":
             fig = px.pie(df, values='OmzetJtBtg', names='GeographyZona',width= 500, height= 400, title="Kontribusi Omset By Geography Zona Sem 1 2022")
     
             st.plotly_chart(fig)
+
             
 
     with col2 :
@@ -528,12 +611,104 @@ if option == "DSO Sales Performance":
 if option == "DSO Sales Performance":
     st.markdown("""---""")
 
-    st.markdown('### Kontribusi Omset By Group & Customer Category Sem 1 2022')
+    st.markdown('### Kontribusi Omset Shop By Zona Sem 1 2022')
     fig = plt.figure(figsize=(12, 5.0625))
     ax1 = fig.add_subplot(121)
     ax2 = fig.add_subplot(122)
     fig.subplots_adjust(wspace=0)
     
+    # large pie chart parameters
+
+      
+
+    pivot1 = pd.pivot_table(data=df, index=['CustomerGroupCategory'], values = 'OmzetJtBtg', aggfunc='sum')
+    xxx1 = [pivot1.iloc[1]['OmzetJtBtg'], pivot1.iloc[0]['OmzetJtBtg'], pivot1.iloc[2]['OmzetJtBtg'], pivot1.iloc[3]['OmzetJtBtg']]
+    pivot2 = pd.pivot_table(data=df, index=['GeographyZona', 'CustomerGroupCategory'], values = 'OmzetJtBtg', aggfunc='sum')
+    yyy1 = [pivot2.iloc[1]['OmzetJtBtg'], pivot2.iloc[5]['OmzetJtBtg'], pivot2.iloc[9]['OmzetJtBtg'], pivot2.iloc[13]['OmzetJtBtg']]
+
+    ###st.write(pivot2)
+    ###st.write(yyy1)
+
+    ratios = xxx1
+    labels = ['Shop', 'Modern Retail', 'Small Retail', 'Special Retail']
+    explode = [0.1, 0, 0, 0]
+    # rotate so that first wedge is split by the x-axis
+    angle = 95 * ratios[0]
+    ax1.pie(ratios, autopct='%1.1f%%', startangle=angle,
+            labels=labels, explode=explode)
+    # small pie chart parameters
+    ratios = yyy1
+    labels = ['Bangkalan', 'Pamekasan', 'Sampang', 'Sumenep']
+    width = .2
+    angle = 60
+    ax2.pie(ratios, autopct='%1.1f%%', startangle=angle,
+            labels=labels, radius=0.5, textprops={'size': 'smaller'})
+    ax1.set_title('Customer Group Category')
+    ax2.set_title('Geography Zona')
+    # use ConnectionPatch to draw lines between the two plots
+    # get the wedge data
+    theta1, theta2 = ax1.patches[0].theta1, ax1.patches[0].theta2
+    center, r = ax1.patches[0].center, ax1.patches[0].r
+    # draw top connecting line
+    x = r * np.cos(np.pi / -90 * theta2) + center[0]
+    y = np.sin(np.pi / -90 * theta2) + center[1]
+    con = ConnectionPatch(xyA=(- width / 2, .5), xyB=(x, y),
+                        coordsA="data", coordsB="data", axesA=ax2, axesB=ax1)
+    con.set_color([0, 0, 0])
+    con.set_linewidth(.5)
+    ax2.add_artist(con)
+    # draw bottom connecting line
+    x = r * np.cos(np.pi / -100 * theta1) + center[0]
+    y = np.sin(np.pi / -100 * theta1) + center[1]
+    con = ConnectionPatch(xyA=(- width / 2, -.5), xyB=(x, y), coordsA="data",
+                        coordsB="data", axesA=ax2, axesB=ax1)
+    con.set_color([0, 0, 0])
+    ax2.add_artist(con)
+    con.set_linewidth(.5)
+    st.write(fig)  
+
+    st.markdown("""---""")
+
+    if option == "DSO Sales Performance":
+        st.markdown('### Kontribusi Omset By Customer Category Sem 1 2022')
+        col1, col2 = st.columns(2)
+    with col1 :
+
+        fig = px.pie(df, values='OmzetJtBtg', names='CustomerGroupCategory',width= 500, height= 400, title="Kontribusi Omset By Customer Group Category Sem 1 2022")
+        
+        st.plotly_chart(fig)
+    with col2 :
+
+        fig = px.pie(df, values='OmzetJtBtg', names='CustomerCategory',width= 500, height= 400, title="Kontribusi Omset By CustomerCategory Sem 1 2022")
+        
+        st.plotly_chart(fig)
+
+
+####################
+  
+
+
+if option == "DSO Canvas Performance":
+    st.markdown("""---""")
+
+    st.markdown('### Kontribusi Omset Kanvas by Zona Sem 1 2022')
+    fig = plt.figure(figsize=(12, 5.0625))
+    ax1 = fig.add_subplot(121)
+    ax2 = fig.add_subplot(122)
+    fig.subplots_adjust(wspace=0)
+    
+    @st.cache(allow_output_mutation=True)
+    def load_data():    
+        df = pd.read_excel(
+            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            engine="openpyxl",
+            sheet_name="Omset_2022",
+            usecols="A:J",
+            nrows=250000,
+            )
+        return (df)
+    df=load_data()
+
     # large pie chart parameters
 
       
@@ -580,21 +755,6 @@ if option == "DSO Sales Performance":
     ax2.add_artist(con)
     con.set_linewidth(.5)
     st.write(fig)  
-
-
-    if option == "DSO Sales Performance":
-        col1, col2 = st.columns(2)
-    with col1 :
-
-        fig = px.pie(df, values='OmzetJtBtg', names='CustomerGroupCategory',width= 500, height= 400, title="Kontribusi Omset By Customer Group Category Sem 1 2022")
-        
-        st.plotly_chart(fig)
-    with col2 :
-
-        fig = px.pie(df, values='OmzetJtBtg', names='CustomerCategory',width= 500, height= 400, title="Kontribusi Omset By CustomerCategory Sem 1 2022")
-        
-        st.plotly_chart(fig)
-    
 
 
 
