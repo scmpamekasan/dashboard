@@ -164,7 +164,7 @@ if option == "MP By Zona - Kategori - Kelas":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="MP_Zona",
             usecols="H:L",
@@ -185,7 +185,7 @@ if option == "MP By Zona - Kategori - Kelas":
     with col2 :
         if option == "MP By Zona - Kategori - Kelas":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+                io="Data/MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -198,7 +198,7 @@ if option == "MP By Zona - Kategori - Kelas":
     with col1 :
         if option == "MP By Zona - Kategori - Kelas":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+                io="Data/Market_DSO.xlsx",
                 engine="openpyxl",
                 sheet_name="MARKET",
                 usecols="B:C",
@@ -213,7 +213,7 @@ if option == "MP By Zona - Kategori - Kelas":
     @st.cache(allow_output_mutation=True)
     def load_data():
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="MP_Zona",
             usecols="H:L",
@@ -347,7 +347,7 @@ if option == "MS By Group Pabrikan":
         # large pie chart parameters
         
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+            io="Data/Market_DSO.xlsx",
             engine="openpyxl",
             sheet_name="Nielsen",
             usecols="A:P",
@@ -409,7 +409,7 @@ if option == "MS By Group Pabrikan":
         @st.cache(allow_output_mutation=True)
         def load_data():
             df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:R",
@@ -468,7 +468,7 @@ if option == "MS By Group Pabrikan":
             ('All Zona', 'Bangkalan', 'Sampang', 'Pamekasan', 'Sumenep'), horizontal= True)
 
         df_dso = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:T",
@@ -489,7 +489,7 @@ if option == "MS By Group Pabrikan":
 
 
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+            io="Data/MIT.xlsx",
             engine="openpyxl",
             sheet_name="Zona",
             usecols="A:N",
@@ -695,7 +695,7 @@ if option == "Top 10 Brand Nielsen" :
     st.markdown('### Top 10 Brand MS Nielsen - Mei 2022 (YTD)')
 
     df = pd.read_excel(
-    io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+    io="Data/Market_DSO.xlsx",
     engine="openpyxl",
     sheet_name="Nielsen",
     usecols="A:Q",
@@ -760,7 +760,7 @@ if option == "Top 10 Brand Nielsen" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df2 = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/Market_DSO.xlsx",
+        io="Data/Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:Q",
@@ -779,7 +779,7 @@ if option == "Top 10 Brand Internal" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df = pd.read_excel(
-        io="/Users/ekasulawestara/Dashboard DSO Pamekasan/MIT.xlsx",
+        io="Data/MIT.xlsx",
         engine="openpyxl",
         sheet_name="DSO",
         usecols="A:R",
