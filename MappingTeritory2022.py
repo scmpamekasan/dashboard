@@ -172,7 +172,7 @@ if choose == "Struktur Organisasi":
 
         col1, col2 = st.columns(2)
         df = pd.read_excel(
-            io ="/pages/Map Territory Juli 2022 DSO Pamekasan.xlsx",
+            io ="Map Territory Juli 2022 DSO Pamekasan.xlsx",
             engine="openpyxl",
             sheet_name="Team_Kanvas",
             usecols="C:H",
@@ -180,7 +180,7 @@ if choose == "Struktur Organisasi":
             )
         
         df2 = pd.read_excel(
-            io ="/pages/Map Territory Juli 2022 DSO Pamekasan.xlsx",
+            io ="Map Territory Juli 2022 DSO Pamekasan.xlsx",
             engine="openpyxl",
             sheet_name="Team_Khusus",
             usecols="C:G",
