@@ -11,7 +11,6 @@ import altair as alt
 from PIL import Image
 import pydeck as pdk
 import plotly.graph_objects as go
-import xlsxwriter
 from matplotlib.patches import ConnectionPatch
 from streamlit_option_menu import option_menu
 
