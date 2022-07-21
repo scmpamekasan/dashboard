@@ -148,9 +148,9 @@ if choose == "Struktur Organisasi":
         Team = st.selectbox("Nama Team",["All Team","Promotion Team", "Distribution Team", "Back Office Team"])
 
     if Team == "All Team" :
-        image1 = Image.open('/Users/ekasulawestara/Dashboard Sem2 - DSO Pamekasan/Team_Promosi.png')
-        image2 = Image.open('/Users/ekasulawestara/Dashboard Sem2 - DSO Pamekasan/Team_Distribusi.png')
-        image3 = Image.open('/Users/ekasulawestara/Dashboard Sem2 - DSO Pamekasan/Back_Office.png')
+        image1 = Image.open('Team_Promosi.png')
+        image2 = Image.open('Team_Distribusi.png')
+        image3 = Image.open('Back_Office.png')
 
         col1, col2, col3 = st.columns(3)
         with col1 :
@@ -173,7 +173,7 @@ if choose == "Struktur Organisasi":
 
         col1, col2 = st.columns(2)
         df = pd.read_excel(
-            io ="/Users/ekasulawestara/Dashboard Sem2 - DSO Pamekasan//Map Territory Juli 2022 DSO Pamekasan.xlsx",
+            io ="/pages/Map Territory Juli 2022 DSO Pamekasan.xlsx",
             engine="openpyxl",
             sheet_name="Team_Kanvas",
             usecols="C:H",
@@ -181,7 +181,7 @@ if choose == "Struktur Organisasi":
             )
         
         df2 = pd.read_excel(
-            io ="/Users/ekasulawestara/Dashboard Sem2 - DSO Pamekasan/Map Territory Juli 2022 DSO Pamekasan.xlsx",
+            io ="/pages/Map Territory Juli 2022 DSO Pamekasan.xlsx",
             engine="openpyxl",
             sheet_name="Team_Khusus",
             usecols="C:G",
@@ -215,7 +215,7 @@ if choose == "MP By Zona-Kategori-Kelas":
     
     def load_data_1():
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="MP_Zona",
             usecols="H:L",
@@ -237,7 +237,7 @@ if choose == "MP By Zona-Kategori-Kelas":
     with col2 :
         if choose == "MP By Zona-Kategori-Kelas":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+                io="MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -251,7 +251,7 @@ if choose == "MP By Zona-Kategori-Kelas":
     with col1 :
         if choose == "MP By Zona-Kategori-Kelas":
                 df = pd.read_excel(
-                io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/Market_DSO.xlsx",
+                io="Market_DSO.xlsx",
                 engine="openpyxl",
                 sheet_name="MARKET",
                 usecols="B:C",
@@ -264,7 +264,7 @@ if choose == "MP By Zona-Kategori-Kelas":
                 st.plotly_chart(fig)
 
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="MP_Zona",
             usecols="H:L",
@@ -420,7 +420,7 @@ if choose == "MS By Group Pabrikan":
         # large pie chart parameters
         
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/Market_DSO.xlsx",
+            io="Market_DSO.xlsx",
             engine="openpyxl",
             sheet_name="Nielsen",
             usecols="A:P",
@@ -481,7 +481,7 @@ if choose == "MS By Group Pabrikan":
     ###    @st.cache(allow_output_mutation=True)
         def load_data_3():
             df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:R",
@@ -541,7 +541,7 @@ if choose == "MS By Group Pabrikan":
             ('All Zona', 'Bangkalan', 'Sampang', 'Pamekasan', 'Sumenep'), horizontal= True)
 
         df_dso = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:T",
@@ -564,7 +564,7 @@ if choose == "MS By Group Pabrikan":
 
 
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="Zona",
             usecols="A:N",
@@ -797,7 +797,7 @@ if choose == "Top 10 Brand Nielsen" :
     st.markdown('### Top 🔟 Brand MS Nielsen - Mei 2022 (YTD)')
 
     df = pd.read_excel(
-    io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/Market_DSO.xlsx",
+    io="Market_DSO.xlsx",
     engine="openpyxl",
     sheet_name="Nielsen",
     usecols="A:Q",
@@ -862,7 +862,7 @@ if choose == "Top 10 Brand Nielsen" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df2 = pd.read_excel(
-        io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/Market_DSO.xlsx",
+        io="Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="Nielsen",
         usecols="A:Q",
@@ -879,7 +879,7 @@ if choose == "Top 10 Brand Nielsen" :
     names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek','D. 7 6 Madu Hitam', 'Gaze Kretek','Ferro Filter']
 
     df = pd.read_excel(
-        io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/Market_DSO.xlsx",
+        io="Market_DSO.xlsx",
         engine="openpyxl",
         sheet_name="TDN_Nielsen",
         usecols="A:Q",
@@ -933,7 +933,7 @@ if choose == "Top 10 Brand Internal" :
         names = ['LA Bold', 'Geo Mild', 'Chief Filter','L.A. Lights Regular','D. 7 6', 'D. Super','Chief Kretek']
 
         df = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:R",
@@ -995,7 +995,7 @@ if choose == "Top 10 Brand Internal" :
         with st.expander("Show Data (Magnificent 7 Brand Prioritas - Djarum)"):
 
             df2 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/MIT.xlsx",
+            io="MIT.xlsx",
             engine="openpyxl",
             sheet_name="DSO",
             usecols="A:T",
