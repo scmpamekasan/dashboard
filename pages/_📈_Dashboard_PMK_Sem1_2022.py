@@ -964,7 +964,7 @@ if choose == "DSO Sales Performance":
 
     def load_data_omset_DSO():
         dfOmset_DSO_S1_22 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Omset_Sem1.xlsx",
+            io="Omset_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Omset_Sem1_2022",
             usecols="G:I",
@@ -995,7 +995,7 @@ if choose == "DSO Sales Performance":
     def load_data_Omset_Zona():
 
         dfOmset_Zona_S1_22 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Omset_Sem1.xlsx",
+            io="Omset_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Omset_Sem1_2022",
             usecols="E:I",
@@ -1055,7 +1055,7 @@ if choose == "DSO Sales Performance":
         @st.cache(allow_output_mutation=True)
         def load_data_MIT_Sektor():
             dfMIT_Sektor = pd.read_excel(
-                io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/MIT.xlsx",
+                io="MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -1071,7 +1071,7 @@ if choose == "DSO Sales Performance":
 
         def load_data_Omset_by_Zona_Customer():    
             dfOmset_Omset_by_Zona_Cust = pd.read_excel(
-                io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Omset_Sem1.xlsx",
+                io="Omset_Sem1.xlsx",
                 engine="openpyxl",
                 sheet_name="Omset_Sem1_2022",
                 usecols="A:J",
@@ -1178,7 +1178,7 @@ if choose == "DSO Canvas Performance":
 
     def load_data_Omset_Kanvas_by_Zona():    
         dfOmset_Kamvas_Zona = pd.read_excel(
-             io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Omset_Sem1.xlsx",
+             io="Omset_Sem1.xlsx",
              engine="openpyxl",
              sheet_name="Omset_Sem1_2022",
              usecols="A:J",
@@ -1292,7 +1292,7 @@ if choose == "DSO Canvas Performance":
 
     def load_data_OC_OV_S1():
         dfOC_OV_S1 =  pd.read_excel(
-                io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/S_TrenOVOCKumulatif_data.xlsx",
+                io="S_TrenOVOCKumulatif_data.xlsx",
                 engine="openpyxl",
                 sheet_name="TrenOVOCKumulatif",
                 usecols="A:G",
@@ -1379,7 +1379,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
     @st.cache(allow_output_mutation=True)
     def load_data_Rekap_Kanvas_Super_S1():
         dfRekap_Kanvas_Super_S1 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super",
             usecols="X:AS",
@@ -1520,7 +1520,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
     @st.cache(allow_output_mutation=True)
     def load_data_Rekap_Kanvas_Madu_S1():
         dfRekap_Kanvas_Madu_S1 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu",
             usecols="X:AS",
@@ -1591,7 +1591,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
 
     def load_data_Rekap_Kanvas_Madu_S1_1():
         dfRekap_Kanvas_Madu_S1_1 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu",
             usecols="X:BD",
@@ -1674,7 +1674,7 @@ if choose == "Rank Promotor":
     @st.cache(allow_output_mutation=True)
     def Load_Data_Rekap_Kanvas_Super_S1_1():
         dfRekap_Kanvas_Super_S1_1 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Super",
             usecols="A:E",
@@ -1748,7 +1748,7 @@ if choose == "Rank Promotor":
     ###@st.cache(allow_output_mutation=True)
     def Load_Data_Rekap_Kanvas_Madu_S1_2():
         dfRekap_Kanvas_Madu_S1_2 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="76Madu",
             usecols="A:E",
@@ -1790,7 +1790,7 @@ if choose == "Rank Promotor":
     ###@st.cache(allow_output_mutation=True)
     def load_data_KPI_OC_OV():
         dfKPI_OC_OV =  pd.read_excel(
-                    io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/S_TrenOVOCKumulatif_data.xlsx",
+                    io="S_TrenOVOCKumulatif_data.xlsx",
                     engine="openpyxl",
                     sheet_name="KPIOVOC",
                     usecols="A:G",
@@ -1853,7 +1853,7 @@ if choose == "Rank Promotor":
 
     def load_data_Rekap_Kanvas_Super_S1_1():
         dfRekap_Kanvas_Super_S1_2 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super2",
             usecols="AD:BE",
@@ -1978,7 +1978,7 @@ if choose == "Rank Promotor":
 
     def load_data_Rekap_Kanvas_Madu_S1_3():
         dfRekap_Kanvas_Madu_S1_3 = pd.read_excel(
-            io="/Users/ekasulawestara/Desktop/Dashboard_PMK_2022/st-multi_app/pages/Rekap_Kanvas_Sem1.xlsx",
+            io="Rekap_Kanvas_Sem1.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu2",
             usecols="AD:BE",
