@@ -1048,31 +1048,31 @@ if choose == "DSO Sales Performance":
 
     st.markdown("""---""")
 
-    if choose == "DSO Sales Performance":
-        st.title(" 💰 Kontribusi Omset")
-        ###@st.cache(allow_output_mutation=True)
-        def load_data_9():
-            df = pd.read_excel(
-                io="pages/Market_DSO.xlsx",
-                engine="openpyxl",
-                sheet_name="MARKET",
-                usecols="B:E",
-                nrows=1000,
-            )
-            return (df)
-        df=load_data_9()
+###    if choose == "DSO Sales Performance":
+###        st.title(" 💰 Kontribusi Omset")
+###        ###@st.cache(allow_output_mutation=True)
+###        def load_data_9():
+###            df = pd.read_excel(
+###                io="pages/Market_DSO.xlsx",
+###                engine="openpyxl",
+###                sheet_name="MARKET",
+###                usecols="B:E",
+###                nrows=1000,
+###            )
+###            return (df)
+###        df=load_data_9()
     
         ###@st.cache(allow_output_mutation=True)
-        def load_data_10():
-            df = pd.read_excel(
-                io="pages/MIT.xlsx",
-                engine="openpyxl",
-                sheet_name="Sektor",
-                usecols="A:P",
-                nrows=10000,
-            )
-            return (df)
-        df=load_data_10()
+###       def load_data_10():
+###            df = pd.read_excel(
+###                io="pages/MIT.xlsx",
+###                engine="openpyxl",
+###                sheet_name="Sektor",
+###                usecols="A:P",
+###                nrows=10000,
+###            )
+###            return (df)
+###        df=load_data_10()
     
         ###@st.cache(allow_output_mutation=True)
 
@@ -1098,7 +1098,7 @@ if choose == "DSO Sales Performance":
             st.plotly_chart(fig)
 
     with col2 :
-            fig = px.pie(df, values='Jun22', names='Kategori-Kelas',width= 500, height= 400, title="Kontribusi Omset By Group Kategori Rokok Sem 2 2022")
+            fig = px.pie(df1, values='OmzetJtBtg', names='RokokProductGroup',width= 500, height= 400, title="Kontribusi Omset By Group Kategori Rokok Sem 2 2022")
     
             st.plotly_chart(fig)
 
