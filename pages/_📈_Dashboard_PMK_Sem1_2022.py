@@ -1086,12 +1086,12 @@ if choose == "DSO Sales Performance":
         col1, col2 = st.columns(2)
     with col1 :
 
-            fig = px.pie(dfOmset_Omset_by_Zona_Cust, values='Omzet', names='GeographyZona',width= 500, height= 400, title="Kontribusi Omset By Geography Zona Sem 1 2022")
+            fig = px.pie(dfOmset_Omset_by_Zona_Cust, values='OmzetJtBtg', names='GeographyZona',width= 500, height= 400, title="Kontribusi Omset By Geography Zona Sem 1 2022")
     
             st.plotly_chart(fig)
 
     with col2 :
-            fig = px.pie(dfMIT_Sektor, values='Jun22', names='Kategori-Kelas',width= 500, height= 400, title="Kontribusi Omset By Group Kategori Rokok Sem 1 2022")
+            fig = px.pie(dfOmset_Omset_by_Zona_Cust, values='OmzetJtBtg', names='RokokProductGroup',width= 500, height= 400, title="Kontribusi Omset By Group Kategori Rokok Sem 1 2022")
     
             st.plotly_chart(fig)
 
