@@ -981,7 +981,7 @@ if choose == "DSO Sales Performance":
     ###@st.cache(allow_output_mutation=True)
     def load_data_7():
         dfOmset_Sem2_2022 = pd.read_excel(
-            io="Omset_Sem2.xlsx",
+            io="pages/Omset_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Omset_Sem2_2022",
             usecols="G:I",
@@ -1010,7 +1010,7 @@ if choose == "DSO Sales Performance":
 
     def load_data_8():
         df40 = pd.read_excel(
-            io="Omset_Sem2.xlsx",
+            io="pages/Omset_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Omset_Sem2_2022",
             usecols="E:I",
@@ -1053,7 +1053,7 @@ if choose == "DSO Sales Performance":
         ###@st.cache(allow_output_mutation=True)
         def load_data_9():
             df = pd.read_excel(
-                io="Market_DSO.xlsx",
+                io="pages/Market_DSO.xlsx",
                 engine="openpyxl",
                 sheet_name="MARKET",
                 usecols="B:E",
@@ -1065,7 +1065,7 @@ if choose == "DSO Sales Performance":
         ###@st.cache(allow_output_mutation=True)
         def load_data_10():
             df = pd.read_excel(
-                io="MIT.xlsx",
+                io="pages/MIT.xlsx",
                 engine="openpyxl",
                 sheet_name="Sektor",
                 usecols="A:P",
@@ -1078,7 +1078,7 @@ if choose == "DSO Sales Performance":
 
         def load_data_11():    
             df1 = pd.read_excel(
-                io="Omset_Sem2.xlsx",
+                io="pages/Omset_Sem2.xlsx",
                 engine="openpyxl",
                 sheet_name="Omset_Sem2_2022",
                 usecols="A:J",
@@ -1185,7 +1185,7 @@ if choose == "DSO Canvas Performance":
 
     def load_data_12():    
         df = pd.read_excel(
-            io="Omset_Sem2.xlsx",
+            io="pages/Omset_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Omset_Sem2_2022",
             usecols="A:J",
@@ -1293,7 +1293,7 @@ if choose == "DSO Canvas Performance":
 
     def load_data_13():
         df50 =  pd.read_excel(
-                io="S_TrenOVOCKumulatif_data_Sem2.xlsx",
+                io="pages/S_TrenOVOCKumulatif_data_Sem2.xlsx",
                 engine="openpyxl",
                 sheet_name="TrenOVOCKumulatif",
                 usecols="A:G",
@@ -1377,7 +1377,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
 
     def load_data_14():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super",
             usecols="X:AS",
@@ -1443,7 +1443,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
 
     def load_data_15():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super",
             usecols="X:AS",
@@ -1517,7 +1517,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
 
     def load_data_16():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu",
             usecols="X:AS",
@@ -1586,7 +1586,7 @@ if choose == "KPI Realisasi Kanvas-TDN-EC":
 
     def load_data_17():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu",
             usecols="X:BD",
@@ -1671,7 +1671,7 @@ if choose == "Rank Promotor":
 
     def load_data_18():
         df1 = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Super",
             usecols="A:E",
@@ -1746,7 +1746,7 @@ if choose == "Rank Promotor":
 
     def load_data_19():
         df2 = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="76Madu",
             usecols="A:E",
@@ -1790,7 +1790,7 @@ if choose == "Rank Promotor":
 
     def load_data_20():
         df_ovoc =  pd.read_excel(
-                    io="S_TrenOVOCKumulatif_data_Sem2.xlsx",
+                    io="pages/S_TrenOVOCKumulatif_data_Sem2.xlsx",
                     engine="openpyxl",
                     sheet_name="KPIOVOC",
                     usecols="A:G",
@@ -1854,7 +1854,7 @@ if choose == "Rank Promotor":
 
     def load_data_21():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super2",
             usecols="AD:BE",
@@ -1915,7 +1915,7 @@ if choose == "Rank Promotor":
 
     def load_data_22():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_Super2",
             usecols="AD:BE",
@@ -1980,7 +1980,7 @@ if choose == "Rank Promotor":
 
     def load_data_23():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu2",
             usecols="AD:BE",
@@ -2039,7 +2039,7 @@ if choose == "Rank Promotor":
 
     def load_data_24():
         df = pd.read_excel(
-            io="Rekap_Kanvas_Sem2.xlsx",
+            io="pages/Rekap_Kanvas_Sem2.xlsx",
             engine="openpyxl",
             sheet_name="Pivot_76Madu2",
             usecols="AD:BE",
