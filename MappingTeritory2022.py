@@ -12,8 +12,8 @@ import plotly.graph_objects as go
 from matplotlib.patches import ConnectionPatch
 from streamlit_option_menu import option_menu
 
-DB_UserName = "Pamekasan"
-DB_Password = "1234"
+###DB_UserName = "Pamekasan"
+###DB_Password = "1234"
 
 st.set_page_config(layout="wide")
 
