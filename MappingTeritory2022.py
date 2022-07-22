@@ -17,7 +17,7 @@ st.set_page_config(layout="wide")
 
 ################################### HEADER ###################################
 st.markdown(""" <style> .font {font-size:50px ; text-align: center; font-family: 'Cooper Black'; color: #A70D2A;} </style> """, unsafe_allow_html=True)
-st.markdown('<p class="font"> Dashboard DSO Pamekasan 2🌎22 </p>', unsafe_allow_html=True)
+st.markdown('<p class="font"> Dashboard DSO Pamekasan 2022 </p>', unsafe_allow_html=True)
 ########## Menu SideBar #############
 
 choose = option_menu("", ["Mapping Teritory", "Struktur Organisasi", "MP By Zona-Kategori-Kelas", "MS By Group Pabrikan", "Top 10 Brand Nielsen", "Top 10 Brand Internal"],
